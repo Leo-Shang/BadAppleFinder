@@ -20,6 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@string/help"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -29,6 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:paddingTop="10dp"
                 android:text="@string/author"
                 android:textSize="20sp" />
@@ -38,18 +40,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:paddingTop="10dp"
                 android:text="@string/explain"
                 android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/citation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="15dp"
-                android:paddingTop="10dp"
-                android:text="@string/dr_brain_fraser_s_youtube_channel"
-                android:textSize="20sp" />
         </LinearLayout>
     </ScrollView>
 

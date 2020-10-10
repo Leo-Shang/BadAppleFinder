@@ -14,8 +14,8 @@ import com.example.a3.R;
 import com.example.a3.model.UserPreference;
 
 public class OptionActivity extends AppCompatActivity {
-    private String[] boardOptions = {"4 x 8", "5 x 10", "6 x 15"};
-    private String[] mineOptions = {"6", "10", "15", "20", "24", "30"};
+    private String[] boardOptions = {"4 x 10", "5 x 12", "6 x 15"};
+    private String[] mineOptions = {"10", "15", "20", "24", "30", "50", "60"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

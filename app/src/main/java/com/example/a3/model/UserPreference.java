@@ -15,7 +15,7 @@ public class UserPreference {
 
     public static UserPreference getInstance() {
         if (instance == null) {
-            instance = new UserPreference(4, 8, 6);
+            instance = new UserPreference(4, 10, 10);
         }
         return instance;
     }

@@ -28,8 +28,8 @@
     <string name="settings">Settings</string>
     <string name="board_size">Board size</string>
     <string name="of_bad_apples"># of Bad Apples</string>
-    <string name="dr_brain_fraser_s_youtube_channel">Dr. Brain Fraser\'s YouTube Channel</string>
     <string name="game_over">Game Over</string>
     <string name="congrat">Congratulations! You won!</string>
     <string name="won_image">won image</string>
+    <string name="broad_background">borad background</string>
 </resources>

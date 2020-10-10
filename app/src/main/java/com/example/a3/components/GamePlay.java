@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -43,8 +44,7 @@ public class GamePlay extends AppCompatActivity {
 
         ActionBar bar = getSupportActionBar();
         if (bar != null) {
-            bar.setDisplayHomeAsUpEnabled(true);
-            bar.setTitle("");
+            bar.hide();
         }
 
         UserPreference preference = UserPreference.getInstance();
@@ -102,7 +102,7 @@ public class GamePlay extends AppCompatActivity {
                     1.0f));
             table.addView(tableRow);
 
-            for (int col = 0; col < col_total; col++){
+            for (int col = 0; col < col_total; col++) {
                 final int FINAL_COL = col;
                 final int FINAL_ROW = row;
 
@@ -112,9 +112,8 @@ public class GamePlay extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
 
-
                 // Make text not clip on small buttons
-                button.setPadding(0, 0, 0, 0);
+                button.setPadding(5, 5, 5, 5);
 
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -130,11 +129,6 @@ public class GamePlay extends AppCompatActivity {
     }
 
     private void gridButtonClicked(int col, int row) {
-        System.out.println("Printing All Mines");
-        show(mine_locations);
-        System.out.println("These are discovered mines");
-        show(found_mines);
-
         Button button = btns[row][col];
         Cell tapped = new Cell(row, col);
 
@@ -235,6 +229,7 @@ public class GamePlay extends AppCompatActivity {
                 Button button = btns[row][col];
 
                 int width = button.getWidth();
+//                System.out.println("THIS IS: " + width);
                 button.setMinWidth(width);
                 button.setMaxWidth(width);
 
