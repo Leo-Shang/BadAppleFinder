@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private static int TIMEOUT = 4000;
+    private static int TIMEOUT = 4000; // 4 seconds count down timer
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

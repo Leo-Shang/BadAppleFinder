@@ -5,6 +5,7 @@ public class UserPreference {
     private int col;
     private int mine;
 
+    // for singleton design pattern
     private static UserPreference instance;
 
     private UserPreference(int row, int col, int mine) {
@@ -13,6 +14,7 @@ public class UserPreference {
         this.mine = mine;
     }
 
+    // static instance getter which could call private constructor
     public static UserPreference getInstance() {
         if (instance == null) {
             instance = new UserPreference(4, 10, 10);

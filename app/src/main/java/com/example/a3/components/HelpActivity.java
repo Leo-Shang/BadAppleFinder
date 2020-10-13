@@ -23,6 +23,6 @@ public class HelpActivity extends AppCompatActivity {
         }
 
         TextView textView = (TextView) findViewById(R.id.aboutAuthor);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        textView.setMovementMethod(LinkMovementMethod.getInstance()); // enables the hyperlink
     }
 }
