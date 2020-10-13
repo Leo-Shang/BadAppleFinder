@@ -30,9 +30,9 @@ public class GamePlay extends AppCompatActivity {
     private int col_total;
     private int mine_total;
     private Button[][] btns;
-    Set<Cell> mine_locations;
-    Set<Cell> found_mines;
-    Set<Cell> button_with_number_shown;
+    Set<Cell> mine_locations; // set of Cell locations that are bad apples
+    Set<Cell> found_mines; // set of bad apple location that already revealed
+    Set<Cell> button_with_number_shown; // set of button locations that has number on them
     TextView found_text;
     TextView scan_used_text;
     int scan_count;
@@ -47,12 +47,11 @@ public class GamePlay extends AppCompatActivity {
             bar.hide();
         }
 
+        // initialize game data from user preference
         UserPreference preference = UserPreference.getInstance();
         row_total = preference.getRow();
         col_total = preference.getCol();
         mine_total = preference.getMine();
-
-//        Toast.makeText(this, "row=" + row_total + " col=" + col_total + " mine=" + mine_total, Toast.LENGTH_SHORT).show();
 
         mine_locations = new HashSet<Cell>();
         found_mines = new HashSet<Cell>();
@@ -67,16 +66,19 @@ public class GamePlay extends AppCompatActivity {
     }
 
     private void setupScanTexts() {
+        // update top-right corner text
         scan_used_text = (TextView) findViewById(R.id.scan_number_text);
         scan_used_text.setText("# Scans used: " + scan_count);
     }
 
     private void setupMineTexts() {
+        // update top-left corner text
         found_text = (TextView) findViewById(R.id.found_text);
         found_text.setText("Found " + found_mines.size() + " of " + mine_total + " mines.");
     }
 
     private void setupMines() {
+        // populate mines locations randomly
         int depolyedMine = 0;
 
         while (depolyedMine < mine_total) {
@@ -91,6 +93,7 @@ public class GamePlay extends AppCompatActivity {
     }
 
     private void setupButtons() {
+        // populate buttons
         btns = new Button[row_total][col_total];
         TableLayout table = (TableLayout) findViewById(R.id.tableForButtons);
 
@@ -129,6 +132,7 @@ public class GamePlay extends AppCompatActivity {
     }
 
     private void gridButtonClicked(int col, int row) {
+        // private method, called when button on click
         Button button = btns[row][col];
         Cell tapped = new Cell(row, col);
 
@@ -178,7 +182,6 @@ public class GamePlay extends AppCompatActivity {
                     button_with_number_shown.add(tapped);
                 }
                 // update found mine and scan count
-                setupMineTexts();
                 setupScanTexts();
             }
         } else {
@@ -190,7 +193,6 @@ public class GamePlay extends AppCompatActivity {
                 scan_count++;
                 button_with_number_shown.add(tapped);
             }
-            setupMineTexts();
             setupScanTexts();
         }
     }

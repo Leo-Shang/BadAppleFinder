@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                // after 4 seconds go to menu activity
                 Intent i = new Intent(MainActivity.this, MenuActivity.class);
                 startActivity(i);
                 finish();
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         skip_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // if user click "skip", cancel the timer, go to menu immediately
                 Intent i = new Intent(MainActivity.this, MenuActivity.class);
                 timer.cancel();
                 startActivity(i);

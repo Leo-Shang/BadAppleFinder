@@ -33,11 +33,13 @@ public class OptionActivity extends AppCompatActivity {
     }
 
     private void setupBoardSizeSpinner() {
+        // set up drop down menu content
         Spinner spinner = (Spinner) findViewById(R.id.board_size_spinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, boardOptions);
         spinner.setAdapter(adapter);
 
+        // set default position
         int default_position = 0;
         UserPreference preference = UserPreference.getInstance();
         String current = preference.getRow() + " x " + preference.getCol();
@@ -49,6 +51,7 @@ public class OptionActivity extends AppCompatActivity {
         }
         spinner.setSelection(default_position);
 
+        // setup item click listener
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -63,7 +66,6 @@ public class OptionActivity extends AppCompatActivity {
                 } else {
                     preference.resetTable(row, col);
                 }
-//                Toast.makeText(OptionActivity.this, "row=" + row + " col=" + col, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -74,11 +76,13 @@ public class OptionActivity extends AppCompatActivity {
     }
 
     private void setupMineCountSpinner() {
+        // set up drop down menu content
         Spinner spinner = (Spinner) findViewById(R.id.mine_count_spinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, mineOptions);
         spinner.setAdapter(adapter);
 
+        // set default position
         int default_position = 0;
         UserPreference preference = UserPreference.getInstance();
         String current = String.valueOf(preference.getMine());
@@ -90,6 +94,7 @@ public class OptionActivity extends AppCompatActivity {
         }
         spinner.setSelection(default_position);
 
+        // setup item click listener
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -102,7 +107,6 @@ public class OptionActivity extends AppCompatActivity {
                 } else {
                     preference.resetMine(mine_count);
                 }
-//                Toast.makeText(OptionActivity.this, "mine count=" + item, Toast.LENGTH_SHORT).show();
             }
 
             @Override
